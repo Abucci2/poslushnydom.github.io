@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Послушный дом — умный дом без проводов</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Open Sans', sans-serif; color: #333; line-height: 1.6; background: #fff; scroll-behavior: smooth; }
+    h1, h2, h3 { font-family: 'Roboto', sans-serif; font-weight: 700; }
+    .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 15px; }
+    header { background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: fixed; width: 100%; top: 0; z-index: 1000; }
+    .header-container { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; }
+    .logo { font-size: 24px; font-weight: 700; color: #1A2B5C; text-decoration: none; }
+    .logo span { color: #FF6B35; }
+    nav ul { display: flex; list-style: none; }
+    nav ul li { margin-left: 30px; }
+    nav ul li a { text-decoration: none; color: #333; font-size: 16px; transition: color 0.3s; }
+    nav ul li a:hover { color: #1A2B5C; }
+    .cta-button { background: #FF6B35; color: white; padding: 12px 24px; border-radius: 30px; text-decoration: none; font-weight: 600; transition: background 0.3s; }
+    .cta-button:hover { background: #e55a2e; }
+    .hero { background: linear-gradient(rgba(26, 43, 92, 0.8), rgba(26, 43, 92, 0.6)), url('img/image.jpeg') no-repeat center center/cover; color: white; text-align: center; padding: 180px 20px 120px; margin-top: 80px; }
+    .hero h1 { font-size: 2.8rem; margin-bottom: 20px; line-height: 1.2; }
+    .hero p { font-size: 1.2rem; max-width: 700px; margin: 0 auto 30px; }
+    .hero .cta-button { font-size: 1.1rem; padding: 14px 30px; }
+    section { padding: 80px 0; }
+    .section-title { text-align: center; font-size: 2rem; color: #1A2B5C; margin-bottom: 50px; }
+    .features { background: #f9f9f9; }
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+    .feature-card { background: white; padding: 30px; border-radius: 12px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+    .feature-icon { font-size: 40px; color: #FF6B35; margin-bottom: 20px; }
+    .feature-card h3 { margin-bottom: 15px; color: #1A2B5C; }
+    .about { display: flex; align-items: center; gap: 50px; flex-wrap: wrap; }
+    .about img { flex: 1; min-width: 300px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+    .about-content { flex: 1; min-width: 300px; }
+    .about-content h2 { color: #1A2B5C; margin-bottom: 20px; }
+    .how-it-works { background: #1A2B5C; color: white; text-align: center; }
+    .how-it-works .section-title { color: white; }
+    .scenario { background: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 10px; margin-bottom: 20px; text-align: left; display: inline-block; width: 100%; max-width: 600px; }
+    .scenario p { font-style: italic; }
+    .steps { background: #f9f9f9; }
+    .steps-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+    .step { text-align: center; max-width: 200px; }
+    .step-number { width: 50px; height: 50px; background: #FF6B35; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-weight: bold; font-size: 1.2rem; }
+    .reviews { background: #1A2B5C; color: white; }
+    .reviews .section-title { color: white; }
+    .review-card { background: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 10px; margin: 20px 0; }
+    .review-card p { font-style: italic; margin-bottom: 10px; }
+    .review-author { font-weight: bold; color: #FF6B35; }
+    .contact { background: #f9f9f9; text-align: center; }
+    .contact-form { max-width: 600px; margin: 0 auto; padding: 30px; background: white; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+    .form-group { margin-bottom: 20px; text-align: left; }
+    .form-group label { display: block; margin-bottom: 8px; color: #1A2B5C; }
+    .form-group input, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-family: inherit; }
+    .form-group textarea { height: 120px; }
+    .contact-form button { background: #FF6B35; color: white; border: none; padding: 14px 30px; border-radius: 30px; font-size: 1.1rem; cursor: pointer; transition: background 0.3s; }
+    .contact-form button:hover { background: #e55a2e; }
+    footer { background: #1A2B5C; color: white; padding: 40px 0 20px; text-align: center; }
+    .footer-content { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 30px; margin-bottom: 30px; }
+    .footer-column h4 { color: #FF6B35; margin-bottom: 15px; }
+    .footer-column ul { list-style: none; }
+    .footer-column ul li { margin-bottom: 8px; }
+    .footer-column a { color: #ddd; text-decoration: none; }
+    .footer-column a:hover { color: #FF6B35; }
+    .social-icons a { font-size: 24px; color: white; margin: 0 10px; }
+    .copyright { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; font-size: 0.9rem; color: #aaa; }
+    @media (max-width: 768px) {
+      .header-container { flex-direction: column; padding: 15px 0; }
+      nav ul { margin-top: 15px; flex-wrap: wrap; justify-content: center; }
+      nav ul li { margin: 5px 10px; }
+      .hero h1 { font-size: 2rem; }
+      .hero p { font-size: 1rem; }
+      .about { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container header-container">
+      <a href="#" class="logo">Послушный<span>дом</span></a>
+      <nav>
+        <ul>
+          <li><a href="#home">Главная</a></li>
+          <li><a href="#features">Преимущества</a></li>
+          <li><a href="#about">О системе</a></li>
+          <li><a href="#steps">Этапы</a></li>
+          <li><a href="#reviews">Отзывы</a></li>
+          <li><a href="#contact">Контакты</a></li>
+        </ul>
+      </nav>
+      <a href="#contact" class="cta-button">Заказать звонок</a>
+    </div>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="container">
+      <h1>Умный дом без проводов — просто, чисто, умно</h1>
+      <p>Быстрая установка за 1 день. Управляй светом, климатом и безопасностью без штробления стен и пыли.</p>
+      <a href="#contact" class="cta-button">Получить консультацию</a>
+    </div>
+  </section>
+
+  <section class="features" id="features">
+    <div class="container">
+      <h2 class="section-title">Почему выбирают нас</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+          <h3>Без проводов</h3>
+          <p>Никакого штробления стен. Установка без пыли и грязи — идеально для ремонта и готовых интерьеров.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-clock"></i></div>
+          <h3>За 1 день</h3>
+          <p>Полный монтаж и настройка системы — за один визит. Никаких недель ожидания.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-mobile-alt"></i></div>
+          <h3>Управление с телефона</h3>
+          <p>Включай свет, закрывай шторы и проверяй безопасность где угодно — через приложение.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+          <h3>Автономность</h3>
+          <p>Система работает даже при отключении света — датчики и сигнализация всегда на страже.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-content">
+        <h2>Как работает беспроводной умный дом?</h2>
+        <p>Мы используем современные технологии — <strong>Zigbee, Wi-Fi и Bluetooth</strong> — для создания полностью автономной системы.</p>
+        <p>Маленькие, незаметные датчики и реле устанавливаются на видимые поверхности или за мебелью. Все устройства связаны с центральным хабом, который вы можете контролировать через смартфон или голосовые помощники (Алиса, Сирена, Google Assistant).</p>
+        <p>Не нужно ломать стены — всё работает на батарейках или от USB, а срок службы устройств — до 5 лет.</p>
+      </div>
+      <img src="https://images.unsplash.com/photo-1550745165-9bc0b25272d4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Умный дом">
+    </div>
+  </section>
+
+  <section class="how-it-works">
+    <div class="container">
+      <h2 class="section-title">Представьте</h2>
+      <div class="scenario">
+        <p>Вы приходите домой, говорите: <strong>«Алиса, добрый вечер»</strong> — и свет в прихожей включается мягко, шторы закрываются, включается ваша любимая музыка, а в кухне начинает греться пол.</p>
+      </div>
+      <div class="scenario">
+        <p>Уходите из дома — нажимаете одну кнопку: <strong>«Дома никого нет»</strong> — и все приборы выключаются, активируется сигнализация, закрываются розетки.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="steps" id="steps">
+    <div class="container">
+      <h2 class="section-title">Как мы работаем</h2>
+      <div class="steps-list">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Консультация</h3>
+          <p>Обсудим ваши желания и задачи</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Проектирование</h3>
+          <p>Создадим индивидуальную схему</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Установка</h3>
+          <p>Монтаж за один день — без пыли</p>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <h3>Запуск</h3>
+          <p>Обучим и передадим систему</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reviews" id="reviews">
+    <div class="container">
+      <h2 class="section-title">Отзывы клиентов</h2>
+      <div class="review-card">
+        <p>«Поставили умный дом за один день, не поверила сначала, что без проводов может быть так надёжно. Теперь управляю всем со смартфона — даже кондиционером с работы!»</p>
+        <div class="review-author">— Елена, Москва</div>
+      </div>
+      <div class="review-card">
+        <p>«Было страшно портить новый ремонт, но оказалось — никакой пыли, никаких штробы. Всё работает стабильно уже полгода. Очень довольны!»</p>
+        <div class="review-author">— Дмитрий, Санкт-Петербург</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="container">
+      <h2 class="section-title">Свяжитесь с нами</h2>
+      <form class="contact-form" onsubmit="alert('Спасибо! Мы свяжемся с вами в ближайшее время.'); return false;">
+        <div class="form-group">
+          <label for="name">Имя</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Телефон</label>
+          <input type="tel" id="phone" name="phone" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Сообщение</label>
+          <textarea id="message" name="message" placeholder="Например: хочу умный дом в 2-комнатную квартиру"></textarea>
+        </div>
+        <button type="submit">Отправить заявку</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h4>Послушный дом</h4>
+          <p>Умный дом без проводов — просто, чисто, умно.</p>
+        </div>
+        <div class="footer-column">
+          <h4>Контакты</h4>
+          <ul>
+            <li><a href="tel:+79168855666">+7 (916) 88 55 666</a></li>
+            <li><a href="mailto:teimur.abud@yandex.ru">teimur.abud@yandex.ru</a></li>
+            <li>г. Москва</li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Соцсети</h4>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-vk"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+            <a href="#"><i class="fab fa-telegram"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        &copy; 2025 Послушный дом. Все права защищены.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
